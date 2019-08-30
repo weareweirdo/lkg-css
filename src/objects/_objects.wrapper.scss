@@ -1,0 +1,16 @@
+/* ==========================================================================
+   #WRAPPER
+   ========================================================================== */
+
+/**
+ * Page-level constraining and wrapping elements.
+ */
+
+.o-wrapper {
+  @include clearfix();
+  padding-right: $spacing-unit;
+  padding-left:  $spacing-unit;
+  margin-right: auto;
+  margin-left:  auto;
+  width: 100%;
+}

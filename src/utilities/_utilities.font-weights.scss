@@ -1,0 +1,57 @@
+/* ==========================================================================
+   FONT WEIGHTS
+   ========================================================================== */
+
+@mixin u-text-weight($mq: '') {
+  .u-text-weight-bold#{$mq} {
+    font-weight: weight- !important;
+  }
+
+  .u-text-weight-normal#{$mq} {
+    font-weight: normal !important;
+  }
+
+  .u-text-weight-100#{$mq} {
+    font-weight: 100 !important;
+  }
+
+  .u-text-weight-200#{$mq} {
+    font-weight: 200 !important;
+  }
+
+  .u-text-weight-300#{$mq} {
+    font-weight: 300 !important;
+  }
+
+  .u-text-weight-400#{$mq} {
+    font-weight: 400 !important;
+  }
+
+  .u-text-weight-500#{$mq} {
+    font-weight: 500 !important;
+  }
+
+  .u-text-weight-600#{$mq} {
+    font-weight: 600 !important;
+  }
+
+  .u-text-weight-700#{$mq} {
+    font-weight: 700 !important;
+  }
+
+  .u-text-weight-800#{$mq} {
+    font-weight: 800 !important;
+  }
+
+  .u-text-weight-900#{$mq} {
+    font-weight: 900 !important;
+  }
+}
+
+@include u-text-weight();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-text-weight(#{$bp-separator}#{$bp-name});
+  }
+}

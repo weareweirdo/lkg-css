@@ -1,0 +1,29 @@
+/* ==========================================================================
+   TEXT TRANSFORM
+   ========================================================================== */
+
+@mixin u-text-transform($mq: '') {
+  .u-text-capitalize#{$mq} {
+    text-transform: capitalize !important;
+  }
+
+  .u-text-lowercase#{$mq} {
+    text-transform: lowercase !important;
+  }
+
+  .u-text-uppercase#{$mq} {
+    text-transform: uppercase !important;
+  }
+
+  .u-text-no-transform#{$mq} {
+    text-transform: none !important;
+  }
+}
+
+@include u-text-transform();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-text-transform(#{$bp-separator}#{$bp-name});
+  }
+}

@@ -1,0 +1,20 @@
+/* ==========================================================================
+   WIDTHS
+   ========================================================================== */
+
+@mixin u-widths($mq: '') {
+  @for $i from 1 through length($widths) {
+    $value: nth($widths, $i);
+    .u-width-#{$i}#{$mq} {
+      width: #{$value} !important;
+    }
+  }
+}
+
+@include u-widths();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-widths(#{$bp-separator}#{$bp-name});
+  }
+}

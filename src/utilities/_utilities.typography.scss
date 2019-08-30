@@ -1,0 +1,49 @@
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
+@mixin u-typography($mq: '') {
+
+  /* Measure is limited to ~66 characters */
+  .u-text-measure {
+    max-width: $measure !important;
+  }
+
+  /* Measure is limited to ~80 characters */
+  .u-text-measure-wide {
+    max-width: $measure-wide !important;
+  }
+
+  /* Measure is limited to ~45 characters */
+  .u-text-measure-narrow {
+    max-width: $measure-narrow !important;
+  }
+
+  /* Book paragraph style - paragraphs are indented with no vertical spacing. */
+  .u-text-indent {
+    text-indent: 1em !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .u-text-small-caps {
+    font-variant: small-caps !important;
+  }
+
+  /* Combine this class with a width to truncate text (or just leave as is to truncate at width of containing element. */
+
+  .u-text-truncate {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+}
+
+@include u-typography();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-typography(#{$bp-separator}#{$bp-name});
+  }
+}

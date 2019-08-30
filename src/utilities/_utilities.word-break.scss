@@ -1,0 +1,25 @@
+/* ==========================================================================
+   WORD BREAK
+   ========================================================================== */
+
+@mixin u-word-break($mq: '') {
+  .u-word-normal#{$mq} {
+    word-break: normal !important;
+  }
+
+  .u-word-break#{$mq} {
+    word-break: break-all !important;
+  }
+
+  .u-word-keep#{$mq} {
+    word-break: keep-all !important;
+  }
+}
+
+@include u-word-break();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-word-break(#{$bp-separator}#{$bp-name});
+  }
+}

@@ -1,0 +1,52 @@
+/* ==========================================================================
+   FONT SIZES
+   ========================================================================== */
+
+@mixin u-font-sizes($mq: '') {
+  @for $i from 1 through length($font-sizes) {
+    $value: nth($font-sizes, $i);
+    .u-text-#{$i}#{$mq} {
+      font-size: #{$value} !important;
+    }
+  }
+
+  .u-text-mega#{$mq} {
+    font-size: fs(1) !important;
+  }
+
+  .u-text-alpha#{$mq} {
+    font-size: fs(2) !important;
+  }
+
+  .u-text-beta#{$mq} {
+    font-size: fs(3) !important;
+  }
+
+  .u-text-gamma#{$mq} {
+    font-size: fs(4) !important;
+  }
+
+  .u-text-delta#{$mq} {
+    font-size: fs(5) !important;
+  }
+
+  .u-text-epsilon#{$mq} {
+    font-size: fs(6) !important;
+  }
+
+  .u-text-zeta#{$mq} {
+    font-size: fs(7) !important;
+  }
+
+  .u-text-eta#{$mq} {
+    font-size: fs(8) !important;
+  }
+}
+
+@include u-font-sizes();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-font-sizes(#{$bp-separator}#{$bp-name});
+  }
+}

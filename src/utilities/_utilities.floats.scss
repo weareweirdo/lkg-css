@@ -1,0 +1,25 @@
+/* ==========================================================================
+   FLOATS
+   ========================================================================== */
+
+@mixin floats($mq: '') {
+  .u-float-left#{$mq} {
+    float: left !important;
+  }
+
+  .u-float-right#{$mq} {
+    float: right !important;
+  }
+
+  .u-float-none#{$mq} {
+    float: none !important;
+  }
+}
+
+@include floats();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include floats(#{$bp-separator}#{$bp-name});
+  }
+}

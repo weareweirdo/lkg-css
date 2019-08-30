@@ -1,0 +1,25 @@
+/* ==========================================================================
+   WHITE SPACE
+   ========================================================================== */
+
+@mixin u-white-space($mq: '') {
+  .u-white-space-normal#{$mq} {
+    white-space: normal !important;
+  }
+
+  .u-white-space-nowrap#{$mq} {
+    white-space: nowrap !important;
+  }
+
+  .u-white-space-pre#{$mq} {
+    white-space: pre !important;
+  }
+}
+
+@include u-white-space();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-white-space(#{$bp-separator}#{$bp-name});
+  }
+}

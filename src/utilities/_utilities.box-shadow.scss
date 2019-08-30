@@ -1,0 +1,37 @@
+/* ==========================================================================
+   BOX SHADOWS
+   ========================================================================== */
+
+@mixin box-shadows($mq: '') {
+  .u-box-shadow-1#{$mq} {
+    box-shadow: $box-shadow-1 !important;
+  }
+
+  .u-box-shadow-2#{$mq} {
+    box-shadow: $box-shadow-2 !important;
+  }
+
+  .u-box-shadow-3#{$mq} {
+    box-shadow: $box-shadow-3 !important;
+  }
+
+  .u-box-shadow-4#{$mq} {
+    box-shadow: $box-shadow-4 !important;
+  }
+
+  .u-box-shadow-5#{$mq} {
+    box-shadow: $box-shadow-5 !important;
+  }
+
+  .u-box-shadow-3d#{$mq} {
+    box-shadow: $box-shadow-3d !important;
+  }
+}
+
+@include box-shadows();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include box-shadows(#{$bp-separator}#{$bp-name});
+  }
+}

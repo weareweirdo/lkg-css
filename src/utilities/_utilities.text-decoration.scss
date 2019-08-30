@@ -1,0 +1,25 @@
+/* ==========================================================================
+   TEXT DECORATION
+   ========================================================================== */
+
+@mixin u-text-decoration($mq: '') {
+  .u-text-strike#{$mq} {
+    text-decoration: line-through !important;
+  }
+
+  .u-text-underline#{$mq} {
+    text-decoration: underline !important;
+  }
+
+  .u-text-no-decoration#{$mq} {
+    text-decoration: none !important;
+  }
+}
+
+@include u-text-decoration();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-text-decoration(#{$bp-separator}#{$bp-name});
+  }
+}

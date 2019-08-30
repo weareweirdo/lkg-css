@@ -1,0 +1,38 @@
+/* ==========================================================================
+   BACKGROUND POSITION
+   ========================================================================== */
+
+@mixin background-positions($mq: '') {
+  .u-bg-center#{$mq} {
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+  }
+
+  .u-bg-top#{$mq} {
+    background-repeat: no-repeat !important;
+    background-position: top center !important;
+  }
+
+  .u-bg-right#{$mq} {
+    background-repeat: no-repeat !important;
+    background-position: center right !important;
+  }
+
+  .u-bg-bottom#{$mq} {
+    background-repeat: no-repeat !important;
+    background-position: bottom center !important;
+  }
+
+  .u-bg-left#{$mq} {
+    background-repeat: no-repeat !important;
+    background-position: center left !important;
+  }
+}
+
+@include background-positions();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include background-positions(#{$bp-separator}#{$bp-name});
+  }
+}

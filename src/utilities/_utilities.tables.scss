@@ -1,0 +1,16 @@
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+.u-table-collapse {
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+
+.u-table-stripe-light:nth-child(odd) {
+  background-color: color(white-10) !important;
+}
+
+.u-table-stripe-dark:nth-child(odd) {
+  background-color: color(black-10) !important;
+}

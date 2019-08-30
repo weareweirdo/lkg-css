@@ -1,0 +1,354 @@
+// ==========================================================================
+// SPACING
+// ==========================================================================
+
+$spacing-unit: 24px;
+$spacing-unit-tiny: $spacing-unit / 4;
+$spacing-unit-small: $spacing-unit / 2;
+$spacing-unit-large: $spacing-unit * 2;
+$spacing-unit-huge: $spacing-unit * 4;
+
+$spacing-directions: (
+  null: null,
+  '-top': '-top',
+  '-right': '-right',
+  '-bottom': '-bottom',
+  '-left': '-left',
+  '-horizontal': '-left' '-right',
+  '-vertical': '-top' '-bottom',
+);
+
+$spacing-properties: (
+  'padding': 'padding',
+  'margin': 'margin',
+);
+
+$spacing-sizes: (
+  null: $spacing-unit,
+  '-negative-tiny': -$spacing-unit-tiny,
+  '-negative-small': -$spacing-unit-small,
+  '-negative-large': -$spacing-unit-large,
+  '-negative-huge': -$spacing-unit-huge,
+  '-negative': -$spacing-unit,
+  '-tiny': $spacing-unit-tiny,
+  '-small': $spacing-unit-small,
+  '-large': $spacing-unit-large,
+  '-huge': $spacing-unit-huge,
+  '-none': 0
+);
+
+// ==========================================================================
+// TYPOGRAPHY
+// ==========================================================================
+
+$font-sizes: (
+  "64px",
+  "48px",
+  "36px",
+  "30px",
+  "18px",
+  "16px",
+  "14px",
+  "12px"
+);
+
+@function fs($index) {
+  @return unquote(nth($font-sizes, $index));
+}
+
+$line-height-solid: 1;
+$line-height-title: 1.25;
+$line-height-copy: 1.5;
+
+$measure: 60ch;
+$measure-wide: 75ch;
+$measure-narrow: 45ch;
+
+// ==========================================================================
+// FONT FAMILIES
+// ==========================================================================
+
+$font-sans-serif: 'cinetype','Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-sans-serif-alt: 'maison-neue', 'cinetype','Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-mono: 'space-mono', 'Lucida Console', 'Courier New', monospace;
+$font-serif: serif;
+
+// ==========================================================================
+// COLORS
+// ==========================================================================
+
+$colors: (
+  "neutral-0": #000,
+  "neutral-37": #4B4B5F,
+  "neutral-53": #787887,
+  "neutral-82": #C2C2D1,
+  "neutral-82-transparent": rgba(#0A0918, 0.2),
+  "neutral-100": #FFFFFF,
+
+  "purple-9": #0A0918,
+  "purple-22": #1F1E37,
+  "purple-29": #35344B,
+  "purple-48": #36257A,
+  "purple-78": #941CC8,
+  "purple-100": #F1F0FF,
+
+  "blue-29": #1A387B,
+  "blue-80": #25B8CD,
+
+  "red-32": #990C38,
+
+  "black-90": rgba(0,0,0,.9),
+  "black-80": rgba(0,0,0,.8),
+  "black-70": rgba(0,0,0,.7),
+  "black-60": rgba(0,0,0,.6),
+  "black-50": rgba(0,0,0,.5),
+  "black-40": rgba(0,0,0,.4),
+  "black-30": rgba(0,0,0,.3),
+  "black-20": rgba(0,0,0,.2),
+  "black-10": rgba(0,0,0,.1),
+  "black-05": rgba(0,0,0,.05),
+  "black-025": rgba(0,0,0,.025),
+  "black-0125": rgba(0,0,0,.0125),
+
+  "white-90": rgba(255,255,255,.9),
+  "white-80": rgba(255,255,255,.8),
+  "white-70": rgba(255,255,255,.7),
+  "white-60": rgba(255,255,255,.6),
+  "white-50": rgba(255,255,255,.5),
+  "white-40": rgba(255,255,255,.4),
+  "white-30": rgba(255,255,255,.3),
+  "white-20": rgba(255,255,255,.2),
+  "white-10": rgba(255,255,255,.1),
+  "white-05": rgba(255,255,255,.05),
+  "white-025": rgba(255,255,255,.025),
+  "white-0125": rgba(255,255,255,.0125),
+
+  "transparent": transparent,
+  "inherit": inherit,
+  "current": currentColor
+);
+
+@function color($name) {
+  @return map-get($colors, $name);
+}
+
+// ==========================================================================
+// GRADIENTS
+// ==========================================================================
+
+$gradients: (
+  "purple": linear-gradient(to right, color(purple-78), color(purple-48)),
+  "red-to-blue": linear-gradient(135deg, color(red-32), color(blue-29))
+);
+
+@function gradient($name) {
+  @return map-get($gradients, $name);
+}
+
+// ==========================================================================
+// HEIGHTS
+// ==========================================================================
+
+$heights: (
+  0.5rem,
+  1rem,
+  2rem,
+  4rem,
+  8rem,
+  16rem
+);
+
+// ==========================================================================
+// WIDTHS
+// ==========================================================================
+
+$widths: (
+  25px,
+  50px,
+  100px,
+  200px,
+  400px,
+  800px,
+  1600px
+);
+
+// ==========================================================================
+// GRID WIDTHS
+// ==========================================================================
+
+// Which fractions would you like in your grid system(s)? By default, inuitcss
+// provides you fractions of one whole, halves, thirds, quarters and fifths,
+// e.g.:
+//
+//   .u-1/2
+//   .u-2/5
+//   .u-3/4
+//   .u-2/3
+
+$grid-fractions: 12;
+
+// Optionally, we can generate classes to offset items by a certain width.
+// Would you like to generate these types of class as well? E.g.:
+//
+//   .u-push-1/3
+//   .u-pull-2/4
+//   .u-pull-1/5
+//   .u-push-2/3
+
+$grid-offsets: true;
+
+// By default, inuitcss uses fractions-like classes like `<div class="u-1/4">`.
+// You can change the `/` to whatever you fancy with this variable.
+
+$grid-delimiter: \/;
+
+// ==========================================================================
+// BREAKPOINTS
+// ==========================================================================
+
+$mq-breakpoints: (
+  "small": 400px,
+  "medium": 700px,
+  "large": 1050px
+);
+
+$bp-separator: \@;
+
+// ==========================================================================
+// BOX SHADOWS
+// ==========================================================================
+
+$box-shadow-1: 0px 0px 4px 2px color(black-20);
+$box-shadow-2: 0px 0px 8px 2px color(black-20);
+$box-shadow-3: 2px 2px 4px 2px color(black-20);
+$box-shadow-4: 2px 2px 8px 0px color(black-20);
+$box-shadow-5: 4px 4px 8px 0px color(black-20);
+
+$box-shadow-3d: -15px 15px 0px color(neutral-82-transparent);
+
+// ==========================================================================
+// BORDERS
+// ==========================================================================
+
+$borders: (
+  '1': 1px,
+  '2': 2px,
+  '3': 4px,
+  '4': 8px,
+  '5': 16px,
+  'none': 0
+);
+
+$border-directions: (
+  null: null,
+  '-top': '-top',
+  '-right': '-right',
+  '-bottom': '-bottom',
+  '-left': '-left'
+);
+
+@function border($name) {
+  @return map-get($borders, $name);
+}
+
+// ==========================================================================
+// BORDER-RADIUS
+// ==========================================================================
+
+$border-radius: (
+  "none": 0,
+  "1": 2px,
+  "2": 4px,
+  "3": 8px,
+  "4": 16px,
+  "circle": 100%,
+  "pill": 9999px
+);
+
+@function border-radius($name) {
+  @return map-get($border-radius, $name);
+}
+
+// ==========================================================================
+// WIDTHS
+// ==========================================================================
+
+$widths: (
+  16px,
+  24px,
+  48px,
+  96px,
+  192px
+);
+
+@function width($index) {
+  @return unquote(nth($widths, $index));
+}
+
+$max-widths: (
+  16px,
+  24px,
+  48px,
+  96px,
+  192px,
+  384px,
+  768px,
+  1536px,
+  3072px,
+  6144px
+);
+
+@function max-width($index) {
+  @return unquote(nth($max-widths, $index));
+}
+
+// ==========================================================================
+// CROPS & RATIOS
+// ==========================================================================
+
+$crops: (
+  (4:3),
+  (16:9),
+);
+
+$ratios: (
+  "2\\:1" : (2:1),
+  "4\\:3" : (4:3),
+  "16\\:9" : (16:9)
+);
+
+// ==========================================================================
+// LETTER SPACING
+// ==========================================================================
+
+$letter-spacing-1: -0.05em;
+$letter-spacing-2: .1em;
+$letter-spacing-3: .25em;
+
+// ==========================================================================
+// ROTATIONS
+// ==========================================================================
+
+$rotations: (
+  "45": 45deg,
+  "90": 90deg,
+  "135": 135deg,
+  "180": 180deg,
+  "225": 225deg,
+  "270": 270deg,
+  "315": 315deg
+);
+
+
+// ==========================================================================
+// Z-INDEX
+// ==========================================================================
+
+$z-index-negative: -1;
+$z-index-0: 0;
+$z-index-1: 1;
+$z-index-2: 10;
+$z-index-3: 100;
+$z-index-4: 1000;
+$z-index-5: 10000;
+$z-index-max: 2147483647;

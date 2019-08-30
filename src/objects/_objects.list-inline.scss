@@ -1,0 +1,18 @@
+/* ==========================================================================
+   #LIST INLINE
+   ========================================================================== */
+
+.o-list-inline {
+  margin: -$spacing-unit-small;
+  list-style: none;
+  padding: 0;
+}
+
+.o-list-inline__item {
+  margin: $spacing-unit-small;
+  display: inline-block;
+}
+
+.o-list-inline--middle > .o-list-inline__item {
+  vertical-align: middle;
+}

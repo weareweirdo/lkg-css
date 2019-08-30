@@ -1,0 +1,18 @@
+/* ==========================================================================
+   POSITIONS
+   ========================================================================== */
+
+@mixin positions($mq: '') {
+  .u-static#{$mq} { position: static !important; }
+  .u-relative#{$mq}  { position: relative !important; }
+  .u-absolute#{$mq}  { position: absolute !important; }
+  .u-fixed#{$mq}  { position: fixed !important; }
+}
+
+@include positions();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include positions(#{$bp-separator}#{$bp-name});
+  }
+}

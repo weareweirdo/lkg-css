@@ -1,0 +1,25 @@
+/* ==========================================================================
+   LETTER SPACING
+   ========================================================================== */
+
+@mixin u-letter-spacing($mq: '') {
+  .u-tracking-1#{$mq} {
+    letter-spacing: $letter-spacing-1;
+  }
+
+  .u-tracking-2#{$mq} {
+    letter-spacing: $letter-spacing-2;
+  }
+
+  .u-tracking-3#{$mq} {
+    letter-spacing: $letter-spacing-3;
+  }
+}
+
+@include u-letter-spacing();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-letter-spacing(#{$bp-separator}#{$bp-name});
+  }
+}

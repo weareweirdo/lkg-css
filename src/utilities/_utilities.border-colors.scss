@@ -1,0 +1,19 @@
+/* ==========================================================================
+   BORDER COLORS
+   ========================================================================== */
+
+@mixin u-border-colors($mq: '') {
+  @each $name, $value in $colors {
+    .u-border-#{$name}#{$mq} {
+      border-color: $value;
+    }
+  }
+}
+
+@include u-border-colors();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-border-colors(#{$bp-separator}#{$bp-name});
+  }
+}

@@ -1,0 +1,20 @@
+/* ==========================================================================
+   MAX-WIDTHS
+   ========================================================================== */
+
+@mixin u-max-widths($mq: '') {
+  @for $i from 1 through length($max-widths) {
+    $value: nth($max-widths, $i);
+    .u-max-width-#{$i}#{$mq} {
+      max-width: #{$value} !important;
+    }
+  }
+}
+
+@include u-max-widths();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-max-widths(#{$bp-separator}#{$bp-name});
+  }
+}

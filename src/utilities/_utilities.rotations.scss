@@ -1,0 +1,19 @@
+/* ==========================================================================
+   ROTATIONS
+   ========================================================================== */
+
+@mixin u-rotate($mq: '') {
+  @each $name, $value in $rotations {
+    .u-rotate-#{$name}#{$mq} {
+      background-image: $value;
+    }
+  }
+}
+
+@include u-rotate();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-rotate(#{$bp-separator}#{$bp-name});
+  }
+}

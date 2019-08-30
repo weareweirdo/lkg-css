@@ -1,0 +1,14 @@
+/* ==========================================================================
+   BACKGROUND COLORS
+   ========================================================================== */
+
+@mixin u-bg-colors($mq: '') {
+  @each $name, $value in $colors {
+    .u-bg-#{$name}#{$mq},
+    .u-bg-#{$name}#{$mq} {
+      background-color: $value !important;
+    }
+  }
+}
+
+@include u-bg-colors();

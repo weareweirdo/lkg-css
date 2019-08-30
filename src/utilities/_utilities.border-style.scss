@@ -1,0 +1,29 @@
+/* ==========================================================================
+   BORDER STYLE
+   ========================================================================== */
+
+@mixin u-border-style($mq: '') {
+  .u-border-style-dotted#{$mq} {
+    border-style: dotted !important;
+  }
+
+  .u-border-style-dashed#{$mq} {
+    border-style: dashed !important;
+  }
+
+  .u-border-style-solid#{$mq} {
+    border-style: solid !important;
+  }
+
+  .u-border-style-none#{$mq} {
+    border-style: none !important;
+  }
+}
+
+@include u-border-style();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-border-style(#{$bp-separator}#{$bp-name});
+  }
+}

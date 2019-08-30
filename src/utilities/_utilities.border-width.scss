@@ -1,0 +1,23 @@
+/* ==========================================================================
+   BORDER WIDTH
+   ========================================================================== */
+
+@mixin u-border-width($mq: '') {
+  @each $direction-namespace, $direction-rules in $border-directions {
+    @each $name, $value in $borders {
+      .u-border#{$direction-namespace}-#{$name}#{$mq} {
+        @each $direction in $direction-rules {
+          border#{$direction}-width: $value !important;
+        }
+      }
+    }
+  }
+}
+
+@include u-border-width();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-border-width(#{$bp-separator}#{$bp-name});
+  }
+}

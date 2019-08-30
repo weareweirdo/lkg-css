@@ -1,0 +1,40 @@
+/* ==========================================================================
+   BORDER RADIUS
+   ========================================================================== */
+
+@mixin u-border-radius($mq: '') {
+  @each $name, $value in $border-radius {
+    .u-radius-#{$name}#{$mq} {
+      border-radius: $value !important;
+    }
+  }
+
+  .u-radius-bottom#{$mq} {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+
+  .u-radius-top#{$mq} {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  .u-radius-right#{$mq} {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  .u-radius-left#{$mq} {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+}
+
+@include u-border-radius();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-border-radius(#{$bp-separator}#{$bp-name});
+  }
+}
+

@@ -1,0 +1,25 @@
+/* ==========================================================================
+   TEXT ALIGN
+   ========================================================================== */
+
+@mixin u-text-align($mq: '') {
+  .u-text-left#{$mq} {
+    text-align: left !important;
+  }
+
+  .u-text-center#{$mq} {
+    text-align: center !important;
+  }
+
+  .u-text-right#{$mq} {
+    text-align: right !important;
+  }
+}
+
+@include u-text-align();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-text-align(#{$bp-separator}#{$bp-name});
+  }
+}

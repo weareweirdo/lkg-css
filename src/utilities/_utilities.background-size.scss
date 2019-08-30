@@ -1,0 +1,21 @@
+/* ==========================================================================
+   BACKGROUND SIZE
+   ========================================================================== */
+
+@mixin background-sizes($mq: '') {
+  .u-bg-cover#{$mq} {
+    background-size: cover !important;
+  }
+
+  .u-bg-contain#{$mq} {
+    background-size: contain !important;
+  }
+}
+
+@include background-sizes();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include background-sizes(#{$bp-separator}#{$bp-name});
+  }
+}

@@ -1,0 +1,25 @@
+/* ==========================================================================
+   LINE HEIGHT
+   ========================================================================== */
+
+@mixin u-letter-spacing($mq: '') {
+  .u-lh-solid#{$mq} {
+    line-height: $line-height-solid;
+  }
+
+  .u-lh-title#{$mq} {
+    line-height: $line-height-title;
+  }
+
+  .u-lh-copy#{$mq} {
+    line-height: $line-height-copy;
+  }
+}
+
+@include u-letter-spacing();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-letter-spacing(#{$bp-separator}#{$bp-name});
+  }
+}

@@ -1,0 +1,120 @@
+/* ==========================================================================
+   HOVERS
+   ========================================================================== */
+
+/**
+ * Hover colors
+ */
+
+@mixin u-hover-colors($mq: '') {
+  @each $name, $value in $colors {
+    .u-hover-color-#{$name}#{$mq}:hover,
+    .u-hover-color-#{$name}#{$mq}:focus {
+      color: $value !important;
+    }
+  }
+}
+
+@include u-hover-colors();
+
+/**
+ * Hover backgrounds
+ */
+
+@mixin u-hover-backgrounds($mq: '') {
+  @each $name, $value in $colors {
+    .u-hover-bg-#{$name}#{$mq}:hover,
+    .u-hover-bg-#{$name}#{$mq}:focus {
+      background-color: $value !important;
+    }
+  }
+}
+
+@include u-hover-backgrounds();
+
+/**
+ * Dim element
+ */
+
+.u-hover-dim {
+  opacity: 1  !important;
+  transition: opacity .15s ease-in !important;
+}
+
+.u-hover-dim:hover,
+.u-hover-dim:focus {
+  opacity: .5  !important;
+  transition: opacity .15s ease-in  !important;
+}
+
+.u-hover-dim:active {
+  opacity: .8  !important;
+  transition: opacity .15s ease-out  !important;
+}
+
+/**
+ * Animate to 100% opacity
+ */
+
+.u-hover-glow {
+  transition: opacity .15s ease-in !important;
+}
+
+.u-hover-glow:hover,
+.u-hover-glow:focus {
+  opacity: 1 !important;
+  transition: opacity .15s ease-in !important;
+}
+
+.u-hover-underline:hover,
+.u-hover-underline:focus {
+  text-decoration: underline !important;
+}
+
+/**
+ * Grow images on hover. Combine with
+ * u-overflow-hidden.
+ */
+
+.u-hover-grow {
+  -moz-osx-font-smoothing: grayscale !important;
+  backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
+  transition: transform 0.25s ease-out !important;
+}
+
+.u-hover-grow:hover,
+.u-hover-grow:focus {
+  transform: scale(1.05) !important;
+}
+
+.u-hover-grow:active {
+  transform: scale(.90) !important;
+}
+
+.u-hover-grow-large {
+  -moz-osx-font-smoothing: grayscale !important;
+  backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
+  transition: transform .25s ease-in-out !important;
+}
+
+.u-hover-grow-large:hover,
+.u-hover-grow-large:focus {
+  transform: scale(1.2) !important;
+}
+
+.u-hover-grow-large:active {
+  transform: scale(.95) !important;
+}
+
+/**
+ * Combine with other hover utilities
+ */
+
+.u-hover-animate,
+.u-hover-animate:hover,
+.u-hover-animate:focus {
+  transition: all .15s ease-in-out !important;
+}
+

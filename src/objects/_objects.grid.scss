@@ -1,0 +1,153 @@
+/* ==========================================================================
+   #GRID
+   ========================================================================== */
+
+/**
+ * This plugin provides a flexbox grid for inuitcss. Support for IE9 currently
+ * prevents inuitcss from using the flexbox layout mode.
+ *
+ * Cells are full-width and will stack on top of each other by default:
+ *
+ * <div class="o-grid">
+ *   <div class="o-grid__cell">
+ *   </div>
+ *   <div class="o-grid__cell">
+ *   </div>
+ * </div>
+ *
+ * Cells will in most cases be accompanied by utility classes that divide
+ * the grid into fractions. These are provided by inuitcss:
+ *
+ * <div class="o-grid">
+ *   <div class="o-grid__cell u-1/2">
+ *   </div>
+ *   <div class="o-grid__cell u-1/2">
+ *   </div>
+ * </div>
+ *
+ * Several modifier classes are provided. For example, `o-grid--auto` will
+ * divide the space equally between all containing cells without the need
+ * for width utility classes.
+ *
+ * <div class="o-grid--auto">
+ *   <div class="o-grid__cell">
+ *   </div>
+ *   <div class="o-grid__cell">
+ *   </div>
+ * </div>
+ */
+
+// This variable is deprecated. Use $spacing-sizes instead.
+
+$gutter-width: $spacing-unit !default;
+
+// Specify a map of possible gutter widths. By default we use the global
+// spacing units provided by inuitcss and their conventional class
+// name suffixes (tiny, small, large etc).
+
+$spacing-sizes: (
+  null: $gutter-width,
+  "--tiny": $spacing-unit-tiny,
+  "--small": $spacing-unit-small,
+  "--large": $spacing-unit-large,
+  "--huge": $spacing-unit-huge,
+  "--flush": 0,
+) !default;
+
+
+/* The grid
+   ========================================================================== */
+
+.o-grid {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  padding: 0;
+}
+
+/**
+ * 1. Cells are full-width and stack on top of each other by default.
+ */
+
+.o-grid__cell {
+  flex: 0 1 auto;
+  width: 100%; /* [1] */
+}
+
+
+/* Gutters
+   ========================================================================== */
+
+/**
+ * 1. The variable $spacing-sizes contains a `null` key which
+ *    will be our default gutter size.
+ * 2. Add a negative margin only on one side. That way we aren't required to
+ *    use a wrapper with the same amount of spacing, though it's common to do so.
+ * 3. Neutralize the left margin on `o-grid`.
+ */
+
+@each $size-namespace, $size in $spacing-sizes {
+
+  .o-grid#{$size-namespace} { /* [1] */
+    margin-left: -$size; /* [2] */
+
+    > .o-grid__cell {
+      padding-left: $size; /* [3] */
+    }
+  }
+}
+
+
+/* Automatically size cells by distributing them equally
+   ========================================================================== */
+
+.o-grid--auto {
+
+  > .o-grid__cell {
+    flex: 1 0 0;
+  }
+}
+
+
+/* Horizontal alignment
+   ========================================================================== */
+
+.o-grid--center {
+  justify-content: center;
+}
+
+.o-grid--right {
+  justify-content: flex-end;
+}
+
+.o-grid--left {
+  justify-content: flex-start;
+}
+
+
+/* Vertical alignment
+   ========================================================================== */
+
+.o-grid--middle {
+  align-items: center;
+}
+
+.o-grid--bottom {
+  align-items: flex-end;
+}
+
+
+/* Content distribution
+   ========================================================================== */
+
+.o-grid--around {
+  justify-content: space-around;
+}
+
+.o-grid--between {
+  justify-content: space-between;
+}
+
+.o-grid--reverse {
+  flex-direction: row-reverse;
+}

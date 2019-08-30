@@ -1,0 +1,29 @@
+/* ==========================================================================
+   VERTICAL ALIGNS
+   ========================================================================== */
+
+@mixin vertical-aligns($mq: '') {
+  .u-vertical-align-base#{$mq} {
+    vertical-align: baseline !important;
+  }
+
+  .u-vertical-align-middle#{$mq} {
+    vertical-align: middle !important;
+  }
+
+  .u-vertical-align-top#{$mq} {
+    vertical-align: top !important;
+  }
+
+  .u-vertical-align-bottom#{$mq} {
+    vertical-align: bottom !important;
+  }
+}
+
+@include vertical-aligns();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include vertical-aligns(#{$bp-separator}#{$bp-name});
+  }
+}

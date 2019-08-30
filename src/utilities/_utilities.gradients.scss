@@ -1,0 +1,19 @@
+/* ==========================================================================
+   GRADIENTS
+   ========================================================================== */
+
+@mixin u-gradients($mq: '') {
+  @each $name, $value in $gradients {
+    .u-bg-gradient-#{$name}#{$mq} {
+      background-image: $value;
+    }
+  }
+}
+
+@include u-gradients();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-gradients(#{$bp-separator}#{$bp-name});
+  }
+}

@@ -1,0 +1,29 @@
+/* ==========================================================================
+   DISPLAY
+   ========================================================================== */
+
+@mixin display($mq: '') {
+  .u-display-none#{$mq} {
+    display: none !important;
+  }
+
+  .u-display-block#{$mq} {
+    display: block !important;
+  }
+
+  .u-display-inline#{$mq} {
+    display: inline !important;
+  }
+
+  .u-inline-block#{$mq} {
+    display: inline-block !important;
+  }
+}
+
+@include display();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include display(#{$bp-separator}#{$bp-name});
+  }
+}

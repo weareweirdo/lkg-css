@@ -1,0 +1,28 @@
+/* ==========================================================================
+   OVERFLOW
+   ========================================================================== */
+
+@mixin overflows($mq: '') {
+  .u-overflow-visible#{$mq} { overflow: visible !important; }
+  .u-overflow-hidden#{$mq} { overflow: hidden !important; }
+  .u-overflow-scroll#{$mq} { overflow: scroll !important; }
+  .u-overflow-auto#{$mq} { overflow: auto !important; }
+
+  .u-overflow-x-visible#{$mq} { overflow-x: visible !important; }
+  .u-overflow-x-hidden#{$mq} { overflow-x: hidden !important; }
+  .u-overflow-x-scroll#{$mq} { overflow-x: scroll !important; }
+  .u-overflow-x-auto#{$mq} { overflow-x: auto !important; }
+
+  .u-overflow-y-visible#{$mq} { overflow-y: visible !important; }
+  .u-overflow-y-hidden#{$mq} { overflow-y: hidden !important; }
+  .u-overflow-y-scroll#{$mq} { overflow-y: scroll !important; }
+  .u-overflow-y-auto#{$mq} { overflow-y: auto !important; }
+}
+
+@include overflows();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include overflows(#{$bp-separator}#{$bp-name});
+  }
+}

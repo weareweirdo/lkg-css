@@ -1,0 +1,37 @@
+/* ==========================================================================
+   SPACINGS
+   ========================================================================== */
+
+@mixin u-spacings($mq: '') {
+  @each $direction-namespace, $direction-rules in $spacing-directions {
+    @each $property-namespace, $property-value in $spacing-properties {
+      @each $size, $size-value in $spacing-sizes {
+        .u-#{$property-namespace}#{$direction-namespace}#{$size}#{$mq} {
+          @each $direction in $direction-rules {
+            #{$property-value}#{$direction}: $size-value !important;
+          }
+        }
+      }
+    }
+  }
+
+  .u-margin-left-auto#{$mq} {
+    margin-left: auto !important;
+  }
+
+  .u-margin-right-auto#{$mq} {
+    margin-right: auto !important;
+  }
+
+  .u-margin-horizontal-auto#{$mq} {
+    margin-right: auto !important;
+  }
+}
+
+@include u-spacings();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include u-spacings(#{$bp-separator}#{$bp-name});
+  }
+}

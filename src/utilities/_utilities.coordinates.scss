@@ -1,0 +1,66 @@
+/* ==========================================================================
+   COORDINATES
+   ========================================================================== */
+
+@mixin coordinates($mq: '') {
+  .u-top-0#{$mq} {
+    top: 0 !important;
+  }
+
+  .u-right-0#{$mq} {
+    right: 0 !important;
+  }
+
+  .u-left-0#{$mq} {
+    left: 0 !important;
+  }
+
+  .u-bottom-0#{$mq} {
+    bottom: 0 !important;
+  }
+
+  @for $i from 1 through length($heights) {
+    $value: nth($heights, $i);
+    .u-top-#{$i}#{$mq} {
+      top: #{$value} !important;
+    }
+
+    .u-right-#{$i}#{$mq} {
+      right: #{$value} !important;
+    }
+
+    .u-bottom-#{$i}#{$mq} {
+      top: #{$value} !important;
+    }
+
+    .u-left-#{$i}#{$mq} {
+      left: #{$value} !important;
+    }
+  }
+
+  @each $name, $value in $spacing-sizes {
+    .u-top#{$name}#{$mq} {
+      top: #{$value} !important;
+    }
+
+    .u-left#{$name}#{$mq} {
+      left: #{$value} !important;
+    }
+
+    .u-right#{$name}#{$mq} {
+      right: #{$value} !important;
+    }
+
+    .u-bottom#{$name}#{$mq} {
+      bottom: #{$value} !important;
+    }
+  }
+}
+
+@include coordinates();
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+  @include mq($from: $bp-name) {
+    @include coordinates(#{$bp-separator}#{$bp-name});
+  }
+}
