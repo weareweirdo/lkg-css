@@ -2,7 +2,7 @@
   "name": "lkg-css",
   "description": "Looking Glass Factory CSS",
   "author": "Mariano Miguel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "dependencies": {
     "autoprefixer": "^9.6.1",
     "browser-sync": "^2.26.7",
