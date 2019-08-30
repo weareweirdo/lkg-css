@@ -1,4 +1,8 @@
 {
+  "name": "@lookingglassfactory/lkg-css",
+  "description": "Looking Glass Factory CSS",
+  "author": "Mariano Miguel",
+  "version": "1.0.0",
   "dependencies": {
     "autoprefixer": "^9.6.1",
     "browser-sync": "^2.26.7",
