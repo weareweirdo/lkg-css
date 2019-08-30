@@ -1,7 +1,12 @@
 /* ==========================================================================
    OUTLINES
    ========================================================================== */
+@mixin u-outline($mq: '') {
+  @each $name, $value in $colors {
+    .u-outline-#{$name}:focus { outline: 1px solid #{$value} !important; }
+  }
 
-.u-outline { outline: 1px solid !important; }
-.u-outline-transparent { outline: 1px solid transparent !important; }
-.u-outline-none { outline: 0 !important; }
+  .u-outline-none:focus { outline: 0 !important; }
+}
+
+@include u-outline();
