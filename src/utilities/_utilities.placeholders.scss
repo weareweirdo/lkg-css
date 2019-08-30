@@ -1,0 +1,11 @@
+/* ==========================================================================
+   PLACEHOLDERS
+   ========================================================================== */
+
+.u-placeholder-light::placeholder {
+  color: $placeholder-light !important;
+}
+
+.u-placeholder-dark::placeholder {
+  color: $placeholder-dark !important;
+}
