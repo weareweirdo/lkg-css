@@ -5,14 +5,14 @@
 // Set the viewport width at which font sizes will exactly match the provided
 // pixel value. Our fluid typography calc() function will scale the font-size
 // up or down based on viewport size and the $fluid-font-size-scale-rate.
-$fluid-font-size-breakpoint: 1200px !default;
+$fluid-font-size-breakpoint: 3000px !default;
 
 // Set the rate at which font sizes scale both up and down depending on
 // viewport size.
 $fluid-font-size-scale-rate: 0.85 !default;
 
 // Enable or disable max boundaries
-$fluid-font-size-max-boundaries: false !default;
+$fluid-font-size-max-boundaries: true !default;
 
 @mixin inuit-fluid-font-size($font-size, $line-height: auto, $important: false) {
 
@@ -51,7 +51,7 @@ $fluid-font-size-max-boundaries: false !default;
   }
 
   @if ($fluid-font-size-max-boundaries == true) {
-    @media screen and (min-width: $global-typography-breakpoint) {
+    @media screen and (min-width: $fluid-font-size-breakpoint) {
       font-size: ($font-size / $global-font-size) * 1rem $important;
     }
   }
